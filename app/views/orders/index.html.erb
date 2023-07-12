@@ -1,0 +1,5 @@
+<h1>Your Cart, <%= current_user.email %>:</h1>
+<!-- Rest of the code -->
+
+<p>Total Amount: <%= number_to_currency(@total_amount) %></p>
+<%= link_to 'Pay and place your order', orders_path, method: :post, class: 'btn btn-primary' %>

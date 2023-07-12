@@ -1,0 +1,12 @@
+<h1>Welcome to the E-commerce Store!, <%= current_user.email %></h1>
+
+<% @products.each do |product| %>
+  <div class="product">
+    <h3><%= product.name %></h3>
+    <p><%= product.description %></p>
+    <p>Price: <%= number_to_currency(product.price) %></p>
+    <% if user_signed_in? %>
+      <%= button_to 'Add to Cart', cart_items_path(product_id: product.id), method: :post, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+<% end %>
